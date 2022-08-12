@@ -18,37 +18,33 @@ app.use((req, res, next) => {
      res.setHeader("Access-Control-Allow-Headers", "*");
      next();
    });
- 
-const users = require('./routes/users')
+
 
    //initialization of variables 
 const port = process.env.PORT || 3001
 
-//middleware
-app.use(express.urlencoded({ extended: true }))
+// //middleware
+// app.use(express.urlencoded({ extended: true }))
 
-// db connection - mongo atlas
-const connectDB = async ()=>{
-    await mongoose.connect(
-        process.env.DB_URL,
-                { useUnifiedTopology: true, useNewUrlParser: true },
-                (err)=> {
-                    if (err) {
-                        console.log("could not connect to mongodb atlas" + '\n' + err)
-                    }else {
-                        console.log("connected to mongo")
-                    }
+// // db connection - mongo atlas
+// const connectDB = async ()=>{
+//     await mongoose.connect(
+//         process.env.DB_URL,
+//                 { useUnifiedTopology: true, useNewUrlParser: true },
+//                 (err)=> {
+//                     if (err) {
+//                         console.log("could not connect to mongodb atlas" + '\n' + err)
+//                     }else {
+//                         console.log("connected to mongo")
+//                     }
                     
-                }
-            )
+//                 }
+//             )
             
-            }
-//execute connection
-connectDB()
+//             }
+// //execute connection
+// connectDB()
 
-
-// app route controllers - app.use
-app.use("/users", users);
 
 
 
