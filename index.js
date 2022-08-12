@@ -10,7 +10,7 @@ const app = new App({
 });
 
 
-app.shortcut('send', async ({ shortcut, ack, client, logger }) => {
+app.shortcut('send_letter', async ({ shortcut, ack, client, logger }) => {
 
     try {
       // Acknowledge shortcut request
