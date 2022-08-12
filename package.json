@@ -1,15 +1,16 @@
 {
-  "name": "yay-api",
+  "name": "slack-client",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js -p $PORT"
+    "dev": "node index.js",
+    "start": "node index.js -p $PORT"
   },
   "author": "daniel gleason",
   "license": "ISC",
   "dependencies": {
+    "@slack/bolt": "^3.12.1",
     "axios": "^0.27.2",
     "cors-anywhere": "^0.4.4",
     "dotenv": "^16.0.1",
