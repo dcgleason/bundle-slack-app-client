@@ -5,7 +5,7 @@
   "master": "server.js",
   "scripts": {
     "dev": "node server.js",
-    "start": "node server.js"
+    "start": "node server.js -p $PORT"
   },
   "author": "daniel gleason",
   "license": "ISC",
