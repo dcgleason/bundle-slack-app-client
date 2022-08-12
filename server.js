@@ -19,12 +19,6 @@ app.use((req, res, next) => {
  
 
    const users = require('./routes/users')
-   const gifts = require('./routes/gifts')
-   const beta = require('./routes/beta')
-   const lulu = require('./routes/lulu')
-   const payment = require('./routes/stripe')
-   const email = require('./routes/email')
-   const userID = require('./routes/check')
 
    //initialization of variables 
 const port = process.env.PORT || 3001
@@ -54,9 +48,18 @@ connectDB()
 
 // app route controllers - app.use
 app.use("/users", users);
-app.use("/gifts", gifts)
-app.use("/beta", beta)
-app.use("/lulu", lulu) // for all requests that go to the print api
-app.use('/stripe', payment);
-app.use('/email', email);
-app.use('/unique', userID);
+
+
+
+// app root route app.get
+app.get("/",(req,res)=>{
+    console.log('root')
+    res.send("APP ROOT")
+ 
+})
+
+
+//server initialization
+app.listen(port, ()=>{
+    console.log(`Example app listening on port ${port}`)
+})
