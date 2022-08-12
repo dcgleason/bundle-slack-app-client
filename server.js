@@ -31,7 +31,7 @@ app.use(express.urlencoded({ extended: true }))
 // db connection - mongo atlas
 const connectDB = async ()=>{
     await mongoose.connect(
-        process.env.DB_URI,
+        process.env.DB_URL,
                 { useUnifiedTopology: true, useNewUrlParser: true },
                 (err)=> {
                     if (err) {
