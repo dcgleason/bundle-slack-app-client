@@ -20,7 +20,7 @@ app.use((req, res, next) => {
    });
  
 
-   const users = require('./routes/users')
+const users = require('./routes/users')
 
    //initialization of variables 
 const port = process.env.PORT || 3001
