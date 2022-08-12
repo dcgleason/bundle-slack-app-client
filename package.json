@@ -2,7 +2,7 @@
   "name": "yay-api",
   "version": "1.0.0",
   "description": "",
-  "master": "server.js",
+  "main": "server.js",
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js -p $PORT"
