@@ -14,8 +14,7 @@ router.post('/send', (req, res) => {
 // sending 4 x 6 handwritten post card 
 
     var data = JSON.stringify({
-        "image_template": 6,
-        "handwriting_style": 4,
+        "handwriting_style": 12,
         "message": req.body.message,
         "recipients": [
           {
@@ -26,12 +25,14 @@ router.post('/send', (req, res) => {
             "postal_code": req.body.postal,
             "country": req.body.country
           }
-        ]
+        ],
+        "giftcard_brand": req.body.brand,
+        "giftcard_amount_in_cents": req.body.amount
       });
       
       var config = {
         method: 'post',
-        url: 'https://api.thanks.io/api/v2/send/postcard',
+        url: 'https://api.thanks.io/api/v2/send/notecard',
         headers: { 
           'Content-Type': 'application/json'
         },
