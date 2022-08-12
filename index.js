@@ -5,7 +5,7 @@ const app = new App({
     token: process.env.token, //Find in the Oauth  & Permissions tab
     signingSecret: process.env.singingSecret, // Find in Basic Information Tab
     socketMode:true,
-    appToken: process.env.appToken // Token from the App-level Token that we created
+    appToken: process.env.SLACK_APP_TOKEN // Token from the App-level Token that we created
 });
 
 
