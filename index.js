@@ -11,7 +11,96 @@ const app = new App({
 
 app.command("/send", async ({ command, ack, say }) => {
     try {
-      await ack();
+        await ack();
+        
+        const { values } = view.state;
+        const taskName = values.task_name_input.name;
+        const taskDescription = values.task_description_input.description;
+                    
+        const inputs = {
+          taskName: { value: taskName.value },
+          taskDescription: { value: taskDescription.value }
+        };
+        await say({
+            "blocks": [
+                {
+                    "type": "input",
+                    "element": {
+                        "type": "plain_text_input",
+                        "action_id": "plain_text_input-action"
+                    },
+                    "label": {
+                        "type": "plain_text",
+                        "text": "Recipient street address",
+                        "emoji": true
+                    }
+                },
+                {
+                    "type": "input",
+                    "element": {
+                        "type": "plain_text_input",
+                        "action_id": "plain_text_input-action"
+                    },
+                    "label": {
+                        "type": "plain_text",
+                        "text": "Recipient city",
+                        "emoji": true
+                    }
+                },
+                {
+                    "type": "input",
+                    "element": {
+                        "type": "plain_text_input",
+                        "action_id": "plain_text_input-action"
+                    },
+                    "label": {
+                        "type": "plain_text",
+                        "text": "Recipient state/province",
+                        "emoji": true
+                    }
+                },
+                {
+                    "type": "input",
+                    "element": {
+                        "type": "plain_text_input",
+                        "action_id": "plain_text_input-action"
+                    },
+                    "label": {
+                        "type": "plain_text",
+                        "text": "Recipient postal code",
+                        "emoji": true
+                    }
+                },
+                {
+                    "type": "input",
+                    "element": {
+                        "type": "plain_text_input",
+                        "action_id": "plain_text_input-action"
+                    },
+                    "label": {
+                        "type": "plain_text",
+                        "text": "Recipient country",
+                        "emoji": true
+                    }
+                },
+                {
+                    "type": "input",
+                    "element": {
+                        "type": "plain_text_input",
+                        "multiline": true,
+                        "action_id": "plain_text_input-action"
+                    },
+                    "label": {
+                        "type": "plain_text",
+                        "text": "Your message",
+                        "emoji": true
+                    }
+                }
+            ]
+        })
+     
+
+      const email = view.state.values['email_address']['input_a'].value;
       let txt = command.text // The inputted parameters
 
       // axios api call to handwritting api
@@ -63,13 +152,12 @@ app.command("/send", async ({ command, ack, say }) => {
       console.error(error);
     }
 });
-
-app.message(/^(hi|hello|hey).*/, async ({ context, say }) => {
-    // RegExp matches are inside of context.matches
-    const greeting = context.matches[0];
+// The echo command simply echoes on command
+app.command('/echo', async ({ command, ack, respond }) => {
+    // Acknowledge command request
+    await ack();
   
-    await say(`${greeting}, how are you?`);
+    await respond(`${command.text}`);
   });
-
 
 app.start(3000)
