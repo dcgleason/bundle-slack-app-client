@@ -8,7 +8,7 @@ const axios = require('axios')
 app.use((req, res, next) => {
    
     const allowedOrigins = ['http://localhost:3000'];
-    const origin = req.headers.origin.toString();
+    const origin = req.headers.origin;
     if (allowedOrigins.includes(origin)) {
      res.setHeader('Access-Control-Allow-Origin', origin);
     }
