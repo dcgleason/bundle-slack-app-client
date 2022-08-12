@@ -40,10 +40,12 @@ router.post('/send', (req, res) => {
       
       axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        console.log('post card response' + JSON.stringify(response.data));
+        res.send(JSON.stringify(response.data))
       })
       .catch(function (error) {
-        console.log(error);
+        console.log('postcard send error' + error);
+        res.send(error);
       });
 
 })
