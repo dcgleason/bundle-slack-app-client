@@ -34,7 +34,8 @@ router.post('/send', (req, res) => {
         method: 'post',
         url: 'https://api.thanks.io/api/v2/send/notecard',
         headers: { 
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+ process.env.bundleToken
         },
         data : data
       };
