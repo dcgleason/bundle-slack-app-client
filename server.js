@@ -19,7 +19,6 @@ app.use((req, res, next) => {
      next();
    });
  
-
 const users = require('./routes/users')
 
    //initialization of variables 
