@@ -248,4 +248,4 @@ app.shortcut('open_modal', async ({ ack, payload, client }) => {
 
 
 
-app.start(3000)
+app.start(process.env.PORT || 3000)
