@@ -22,7 +22,7 @@ await ack();
             "type": "modal",
             "title": {
                 "type": "plain_text",
-                "text": "My App",
+                "text": "Bundle",
                 "emoji": true
             },
             "submit": {
