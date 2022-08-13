@@ -12,7 +12,7 @@ const app = new App({
 
 
 
-app.command("/send_letter", async ({ ack, body, client, logger }) => {
+app.command("/send", async ({ ack, body, client, logger }) => {
     
 ack();
    try{
