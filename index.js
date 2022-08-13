@@ -5,7 +5,7 @@ const axios = require('axios')
 const app = new App({
     token: process.env.token, //Find in the Oauth  & Permissions tab
     signingSecret: process.env.singingSecret, // Find in Basic Information Tab
-    socketMode:false,
+    socketMode:true,
     appToken: process.env.SLACK_APP_TOKEN // Token from the App-level Token that we created
 });
 
