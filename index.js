@@ -18,9 +18,9 @@ await ack();
    try{
     const result = await client.views.open({
       "trigger_id": body.trigger_id,
-      "callback_id": "view_identifier_12",
       "view": {
         "type": "modal",
+        "callback_id": "view_identifier_12",
         "title": {
           "type": "plain_text",
           "text": "Bundle"
