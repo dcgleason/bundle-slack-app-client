@@ -130,7 +130,7 @@ await ack();
       }
     });
 
-    logger.info(result);
+    logger.info("send result" + result);
 
   }
 catch {
@@ -239,7 +239,7 @@ app.shortcut('open_modal', async ({ ack, payload, client }) => {
           }
         }
       });
-      logger.info(result);
+      logger.info("ticket view result" + result);
     }
     catch (error) {
       logger.error(error);
