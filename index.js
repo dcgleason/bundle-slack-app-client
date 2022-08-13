@@ -136,7 +136,7 @@ await ack();
       }
     });
 
-    logger.info("send result" + result);
+    logger.info(result);
 
   }
 catch {
