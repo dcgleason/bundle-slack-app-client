@@ -191,7 +191,7 @@ app.shortcut('open_modal', async ({ ack, payload, client }) => {
     }
   }); // not working
 
-  app.command('/ticket', async ({ ack, body, client, logger }) => {
+app.command('/ticket', async ({ ack, body, client, logger }) => {
     // Acknowledge the command request
     await ack();
   
