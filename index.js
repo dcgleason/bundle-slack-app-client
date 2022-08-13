@@ -17,14 +17,14 @@ app.command('/echo', async ({ command, ack, respond }) => {
     await respond(`${command.text}`);
   });
 
-app.shortcut("/send_letter", async ({ command, ack, say }) => {
+app.shortcut("/send_letter", async ({ ack, payload, client }) => {
     
 ack();
    try{
 
 
     const result = await client.views.open({
-      trigger_id: req.body.trigger_id,
+      trigger_id: payload.trigger_id,
       view: {
         "type": "modal",
         "title": {
