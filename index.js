@@ -12,14 +12,14 @@ const app = new App({
 
 
 
-app.shortcut("/send_letter", async ({ ack, payload, client }) => {
+app.command("/send_letter", async ({ ack, body, client, logger }) => {
     
 ack();
    try{
 
 
     const result = await client.views.open({
-      trigger_id: payload.trigger_id,
+      trigger_id: body.trigger_id,
       view: {
         "type": "modal",
         "title": {
@@ -132,7 +132,7 @@ ack();
       }
     });
 
-    console.log(result)
+    logger.info(result);
 
   }
 catch {
