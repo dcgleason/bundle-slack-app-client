@@ -11,7 +11,7 @@ const app = new App({
 
 
 
-app.command("/send", async ({ command, ack, say }) => {
+app.shortcut("/send_letter", async ({ command, ack, say }) => {
     try {
         await ack();
         // const result = await client.views.open({
