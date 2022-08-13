@@ -12,14 +12,124 @@ const app = new App({
 
 
 app.shortcut("/send_letter", async ({ command, ack, say }) => {
-    try {
-        await ack();
-        say("Hello, this is a test.")
-        console.log('console.logging test');
-        } catch (error) {
-            console.log("err")
-            logger.error(error);
+    
+    try{
 
+        await ack();
+
+        const result = await client.views.open({
+          trigger_id: req.body.trigger_id,
+          view: {
+            "type": "modal",
+            "title": {
+              "type": "plain_text",
+              "text": "Bundle"
+            },
+            "close": {
+              "type": "plain_text",
+              "text": "Close"
+            },
+    
+            "blocks": [
+              {
+                  "type": "input",
+                  "element": {
+                      "type": "plain_text_input",
+                      "action_id": "plain_text_input-action"
+                  },
+                  "label": {
+                      "type": "plain_text",
+                      "text": "Recipient street address",
+                      "emoji": true
+                  }
+              },
+              {
+                  "type": "input",
+                  "element": {
+                      "type": "plain_text_input",
+                      "action_id": "plain_text_input-action"
+                  },
+                  "label": {
+                      "type": "plain_text",
+                      "text": "Recipient city",
+                      "emoji": true
+                  }
+              },
+              {
+                  "type": "input",
+                  "element": {
+                      "type": "plain_text_input",
+                      "action_id": "plain_text_input-action"
+                  },
+                  "label": {
+                      "type": "plain_text",
+                      "text": "Recipient state/province",
+                      "emoji": true
+                  }
+              },
+              {
+                  "type": "input",
+                  "element": {
+                      "type": "plain_text_input",
+                      "action_id": "plain_text_input-action"
+                  },
+                  "label": {
+                      "type": "plain_text",
+                      "text": "Recipient postal code",
+                      "emoji": true
+                  }
+              },
+              {
+                  "type": "input",
+                  "element": {
+                      "type": "plain_text_input",
+                      "action_id": "plain_text_input-action"
+                  },
+                  "label": {
+                      "type": "plain_text",
+                      "text": "Recipient country",
+                      "emoji": true
+                  }
+              },
+              {
+                  "type": "input",
+                  "element": {
+                      "type": "plain_text_input",
+                      "multiline": true,
+                      "action_id": "plain_text_input-action"
+                  },
+                  "label": {
+                      "type": "plain_text",
+                      "text": "Your message",
+                      "emoji": true
+                  }
+              },
+              {
+                  "type": "section",
+                  "text": {
+                      "type": "mrkdwn",
+                      "text": "Click submit to send a letter (in the mail)"
+                  },
+                  "accessory": {
+                      "type": "button",
+                      "text": {
+                          "type": "plain_text",
+                          "text": "Submit",
+                          "emoji": true
+                      },
+                      "value": "click_me_123",
+                      "action_id": "button-action"
+                  }
+              }
+          ]
+          }
+        });
+    
+        console.log(result);
+    
+      }
+    catch {
+      console.log('error while popping up the modal');
     }
 
 });
