@@ -14,7 +14,7 @@ const app = new App({
 
 app.command("/send", async ({ ack, body, client, logger }) => {
     
-ack();
+await ack();
    try{
     const result = await client.views.open({
       trigger_id: body.trigger_id,
